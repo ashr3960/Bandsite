@@ -1,54 +1,251 @@
-@use "partials/navbar";
-@use "partials/footer";
-@use "partials/global" as *;
 
-* {
-  padding: 0;
-  margin: 0;
-}
+@use 'partials/global' as *;
+@use './partials/mixin' as *;
 
-
-.hero{
-  position: relative;
+.hero {
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-color: rgba(50, 50, 50, .5);
+  height: 320px;
   width: 100%;
+  position: relative;
+  background-image: url(/assets/images/hero-bio.jpg);
+  background-position: center;
+  background-size: cover;
   
-  &__image {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
 
-  &__text {
-    @extend .page-header;
-    position: absolute; 
-    top: 50%; 
-    transform: translate(0%, -50%); 
-    text-align: center; 
-    padding: 0 20px;
+  &__title {
+    font-family: nunito-medium;
     color: $white;
+    font-size: 36px;
+    padding-left: 16px;
+    position: relative;
+    top: 128px;
   }
 }
 
+@include tablet {
+  .hero {
+    height: 480px;
+    width: 100%;
+    position: relative;
+
+    &__title {
+      font-family: nunito-medium;
+      font-size: 60px;
+      line-height: 68px;
+      padding-left: 36px;
+      color: $white;
+      position: relative;
+      top: 176px;
+    }
+  }
+}
+
+@include desktop {
+  .hero__title {
+    padding-left: 120px;
+  }
+}
+
+
+
+
+
+
+// About
 .about {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+
   &__title {
-    @extend .page-header;
-    padding-top: 24px;
+    font-family: nunito-medium;
+    font-size: 24px;
+    line-height: 36px;
+    padding: 24px 0 16px;
+  }
+
+  &__image {
     padding-bottom: 16px;
   }
 
-  &__imagecontainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-  }
-
-  &__imagecontainer--image {
-    padding: 24px;
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
+  &__name {
+    padding-bottom: 16px;
+    font-family: nunito-regular;
+    line-height: 22px;
   }
 }
 
+.about__quote {
+  font-family: nunito-medium;
+  font-size: 13px;
+  padding-bottom: 16px;
+  line-height: 22px;
+  color: $black;
+
+  &--author {
+    padding-bottom: 24px;
+    line-height: 18px;
+    color: $black;
+    font-family: nunito-medium;
+    font-size: 13px;
+  }
+}
+
+.about__text {
+  flex-direction: column;
+  padding-bottom: 16px;
+  font-size: 13px;
+  color: $black;
+  font-family: nunito-regular;
+  line-height: 18px;
+  display: flex;
+  
+  &--space {
+    padding-bottom: 16px;
+  }
+
+  &--space-left {
+    padding-left: 18px;
+  }
+}
+
+// Tablet Style For About
+@include tablet {
+  .about {
+    padding: 0 36px;
+
+    &__title {
+      font-family: nunito-medium;
+      font-size: 36px;
+      line-height: 44px;
+      padding: 48px 0 36px;
+    }
+
+    &__image {
+      padding: 0 36px 36px;
+    }
+
+    &__name {
+      padding: 0 36px 24px;
+      font-family: nunito-medium;
+      line-height: 32px;
+      font-size: 24px;
+    }
+  }
+
+  .about__quote {
+    font-family: nunito-medium;
+    font-size: 24px;
+    padding: 0 36px 16px;
+    line-height: 24px;
+
+    &--author {
+      font-family: nunito-medium;
+      font-size: 16px;
+      padding: 0 24px 24px;
+    }
+  }
+
+  .about__text {
+    font-size: 16px;
+    font-family: -regular;
+    line-height: 24px;
+    display: flex;
+    flex-direction: row;
+    padding: 0 24px 24px;
+
+
+    &--space {
+      padding-right: 18px;
+    }
+
+    &--space-left {
+      padding-left: 18px;
+    }
+  }
+}
+
+// Desktop Style For About
+@include desktop {
+  .about {
+    padding: 0 120px;
+
+    &__image {
+      padding: 0 64px 36px;
+    }
+
+    &__text {
+      padding: 0 64px 36px;
+    }
+
+    &__name {
+      padding: 0 64px 24px;
+    }
+  }
+
+  .about__quote {
+    padding: 0 64px 16px;
+    max-width: 80%;
+
+    &--author {
+      padding: 0 64px 36px;
+    }
+  }
+}
+
+
+
+
+// Photos
+.photogallery {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  background-color: $alabaster;
+
+  &__title {
+    font-family: nunito-medium;
+    line-height: 36px;
+    color: $black;
+    padding: 24px 0 16px;
+    font-size: 24px;
+  }
+}
+
+.image {
+  max-width: 100%;
+  margin-bottom: 16px;
+}
+
+// Tablet Styles For Photos
+@include tablet {
+  .photogallery {
+    padding: 0 36px;
+
+    &__title {
+      font-size: 36px;
+      line-height: 44px;
+      padding: 24px 0 36px;
+    }
+  }
+
+  .image {
+    max-width: 31%;
+    margin-bottom: 36px;
+  }
+
+  .pic-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    display: flex;
+  }
+}
+
+// Desktop Styles For Photos
+@include desktop {
+  .photogallery {
+    padding: 0 120px;
+  }
+}

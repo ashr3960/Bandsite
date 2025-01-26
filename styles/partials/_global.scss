@@ -1,0 +1,168 @@
+$black: #323232;
+$darkblack: #000000;
+$white: #FFFFFF;
+$silver: #AFAFAF;
+$mercury: #E1E1E1;
+$alabaster: #FAFAFA;
+
+$mobile-width: 320px;
+$tablet-width: 768px;
+$desktop-width: 1280px;
+
+@font-face {
+    font-family: 'NunitoSans';
+    src: url('../fonts/NunitoSans-Regular.woff') format('woff');
+    font-weight: 400; /* Regular weight */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NunitoSans';
+    src: url('../fonts/NunitoSans-Medium.woff') format('woff');
+    font-weight: 500; /* Medium weight */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NunitoSans';
+    src: url('../fonts/NunitoSans-Bold.woff') format('woff');
+    font-weight: 700; /* Bold weight */
+    font-style: normal;
+}
+
+/* Mobile Text Styles */
+.page-header {
+    font-size: 30px;
+    line-height: 32px;
+    font-weight: 700; 
+}
+
+.section-header {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 600; 
+}
+
+.subheader {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400; 
+}
+
+.body-copy {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+}
+
+.footer-copy {
+    font-size: 10px;
+    line-height: 20px;
+    font-weight: 700; 
+}
+
+.label-button {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700; 
+}
+
+/* Tablet Text Styles */
+@media (min-width: $tablet-width) {
+    .page-header {
+        font-size: 36px;
+        line-height: 44px;
+        font-weight: 700; /* Bold 700 */
+    }
+
+    .section-header {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 700; /* Bold 700 */
+    }
+
+    .subheader {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500; /* Medium 500 */
+    }
+
+    .body-copy {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400; /* Regular 400 */
+    }
+
+    .footer-copy {
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 700; /* Bold 700 */
+    }
+
+    .label-button {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 700; /* Bold 700 */
+    }
+}
+
+/* Desktop Text Styles */
+@media (min-width: $desktop-width) {
+    .page-header {
+        font-size: 36px;
+        line-height: 44px;
+        font-weight: 700; /* Bold 700 */
+    }
+
+    .section-header {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 700; /* Bold 700 */
+    }
+
+    .subheader {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500; /* Medium 500 */
+    }
+
+    .body-copy {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400; /* Regular 400 */
+    }
+
+    .footer-copy {
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 700; /* Bold 700 */
+    }
+
+    .label-button {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 700; /* Bold 700 */
+    }
+}
+
+
+/* media query for mobile */
+@mixin small {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+/* media query for tablet */
+@mixin medium {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+/* media query for landscape, medium pixel density desktops */
+@mixin large {
+  @media only screen and (min-width: 1440px) {
+    @content;
+  }
+}

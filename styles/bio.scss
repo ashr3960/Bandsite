@@ -1,0 +1,54 @@
+@use "partials/navbar";
+@use "partials/footer";
+@use "partials/global" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+.hero{
+  position: relative;
+  width: 100%;
+  
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__text {
+    @extend .page-header;
+    position: absolute; 
+    top: 50%; 
+    transform: translate(0%, -50%); 
+    text-align: center; 
+    padding: 0 20px;
+    color: $white;
+  }
+}
+
+.about {
+  &__title {
+    @extend .page-header;
+    padding-top: 24px;
+    padding-bottom: 16px;
+  }
+
+  &__imagecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__imagecontainer--image {
+    padding: 24px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+

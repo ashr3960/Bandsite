@@ -41,7 +41,7 @@ a {
 
 
 
-
+// Navbar
 .navbar {
     background-color: $black;
 
@@ -86,7 +86,7 @@ a {
     }
 }
 
-// Tablet View
+// Tablet View for Navbar
 @include tablet {
     .navbar {
         display: flex;
@@ -110,13 +110,149 @@ a {
     }
 }
 
-// Desktop View
+// Desktop View for Navbar
 @include desktop {
     .navbar {
         padding: 0 120px;
 
         &__logo {
             margin-right: 40px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+// Footer
+.footer {
+    background-color: $black;
+    color: $white;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 32px;
+
+    &__social {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        &-icon {
+            margin-right: 28px;
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    &__title {
+        font-family: nunito-medium;
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    &__contacts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        margin-top: 24px;
+    }
+
+    &__brand {
+        margin-top: 48px;
+
+        &-logo {
+            display: block;
+            width: 120px;
+        }
+    }
+
+    &__copyright {
+        margin-top: 24px;
+        font-family: nunito-regular;
+        font-size: 13px;
+    }
+
+    &__hidden {
+        display: none;
+    }
+}
+
+.contact {
+    font-family: nunito-regular;
+    font-size: 13px;
+
+    &__name {
+        font-family: nunito-bold;
+        margin-bottom: 24px;
+    }
+
+    &__email {
+        font-family: nunito-regular;
+        margin-top: 24px;
+    }
+}
+
+// Tablet Styles for Footer
+@include tablet {
+    .footer {
+        padding: 36px;
+
+        &__title {
+            font-size: 36px;
+            line-height: 44px;
+        }
+
+        &__social {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 36px;
+        }
+
+        &__icons {
+            margin-left: 48px;
+        }
+
+        &__contacts {
+            gap: 48px;
+        }
+
+        &__brand {
+            display: none;
+        }
+
+        &__hidden {
+            display: flex;
+            margin-left: 4vw;
+        }
+    }
+
+    .contact-agent {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+// Desktop Styles for Footer
+@include desktop {
+    .footer {
+        padding: 36px 120px;
+
+        &__contacts {
+            gap: 64px;
+        }
+
+        &__brand {
+            margin-top: 64px;
+        }
+
+        &__hidden {
+            margin-left: 28vw;
         }
     }
 }

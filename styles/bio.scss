@@ -78,7 +78,7 @@
 }
 
 .about__quote {
-  font-family: nunito-medium;
+  font-family: nunito-bold;
   font-size: 13px;
   padding-bottom: 16px;
   line-height: 22px;
@@ -88,7 +88,7 @@
     padding-bottom: 24px;
     line-height: 18px;
     color: $black;
-    font-family: nunito-medium;
+    font-family: nunito-bold;
     font-size: 13px;
   }
 }
@@ -102,25 +102,19 @@
   line-height: 18px;
   display: flex;
   
-  &--space {
+  &--one {
     padding-bottom: 16px;
-  }
-
-  &--space-left {
-    padding-left: 18px;
   }
 }
 
 // Tablet Style For About
 @include tablet {
   .about {
-    padding: 0 36px;
 
     &__title {
       font-family: nunito-medium;
       font-size: 36px;
       line-height: 44px;
-      padding: 48px 0 36px;
     }
 
     &__image {
@@ -128,21 +122,21 @@
     }
 
     &__name {
-      padding: 0 36px 24px;
-      font-family: nunito-medium;
+      font-family: nunito-bold;
       line-height: 32px;
       font-size: 24px;
+      margin-left: 24px;
     }
   }
 
   .about__quote {
-    font-family: nunito-medium;
+    font-family: nunito-bold;
     font-size: 24px;
     padding: 0 36px 16px;
     line-height: 24px;
 
     &--author {
-      font-family: nunito-medium;
+      font-family: nunito-bold;
       font-size: 16px;
       padding: 0 24px 24px;
     }
@@ -150,18 +144,18 @@
 
   .about__text {
     font-size: 16px;
-    font-family: -regular;
+    font-family: nunitp-regular;
     line-height: 24px;
     display: flex;
     flex-direction: row;
     padding: 0 24px 24px;
 
 
-    &--space {
+    &--one {
       padding-right: 18px;
     }
 
-    &--space-left {
+    &--two {
       padding-left: 18px;
     }
   }
@@ -182,15 +176,18 @@
 
     &__name {
       padding: 0 64px 24px;
+      margin-left: 0px;
     }
   }
 
   .about__quote {
     padding: 0 64px 16px;
     max-width: 80%;
+    font-family: nunito-bold;
 
     &--author {
       padding: 0 64px 36px;
+      font-family: nunito-bold;
     }
   }
 }

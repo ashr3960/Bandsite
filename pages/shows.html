@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../styles/shows.css"> 
+        <link rel="stylesheet" href="/styles/partials/_global.scss">
+        <title>Shows</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="/scripts/shows.js"></script>
+
+    </head>
+    
+    <body>
+        <!-- Navbar Section -->
+        <nav class="navbar">
+            <a href="/index.html">
+                <img class="navbar__logo" src="/assets/logos/Logo-bandsite.svg">
+            </a>
+            <div class="navbar-menu">
+                <ul class="navbar-menu__list">
+                    <li class="navbar-menu__list-item">
+                        <a class="navbar-menu__link" href="/index.html">Biography</a>
+                    </li>
+                    <li class="navbar-menu__list-item navbar-menu__list-item--active">
+                        <a class="navbar-menu__link" href="pages/shows.html">Shows</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+
+        <!-- Hero Section -->
+        <section class="hero">
+
+            <div class="hero__container">
+                <h2 class="hero__subtitle">Beautiful Beasts Album</h2>
+                <h1 class="hero__title">Stripes of Yellow x For The Stingss</h1>
+            </div>
+
+            <div class="hero__container">
+                <iframe class="soundcloud" scrolling="no" frameborder="no" allow="autoplay" 
+                    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/muhammadalmuqit/i-rise&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                </iframe>
+
+                <div style="font-size: 10px; color: white; word-break: normal;  line-break: anywhere; overflow: hidden; white-space: nowrap; font-weight: 100; text-overflow: ellipsis;">
+                    <a href="https://soundcloud.com/muhammadalmuqit/i-rise" title="I Rise" target="_blank" style="color: white; text-decoration: none;"></a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Show Section -->
+        <section class="shows">
+
+            <h2 class="shows__title">Shows</h2>
+
+            <div class="shows__label">
+                <p class="shows__label__name">DATE</p>
+                <p class="shows__label__name">VENUE</p>
+                <p class="shows__label__name">LOCATION</p>
+            </div>
+
+            <ul class="shows__container"> </ul> 
+        </section>
+
+        
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer__social">
+                <h2 class="footer__title">Get in Touch</h2>
+                <div class="footer__icons">
+                    <a href="https://instagram.com/">
+                        <img class="footer__social-icon" src="/assets/icons/Icon-instagram.svg">
+                    </a>
+                    <a href="https://facebook.com/">
+                        <img class="footer__social-icon" src="/assets/icons/Icon-facebook.svg">
+                    </a>
+                    <a href="https://twitter.com/">
+                        <img class="footer__social-icon" src="/assets/icons/Icon-twitter.svg">
+                    </a>
+                </div>
+
+                <div class="footer__hidden">
+                    <a href="/index.html">
+                        <img class="footer__bhidden-logo" src="/assets/logos/Logo-bandsite.svg">
+                    </a>
+                </div>
+            </div>
+        
+            <div class="footer__contacts">
+                <div class="contact">
+                    <p class="contact__name">The Bees Knees Management</p>
+                    <p>503 Broadway Penthouse</p>
+                    <p>New York, NY 10012, USA</p>
+                    <p class="contact__email">info@thebeesknees.com</p>
+                </div>
+                <div class="contact">
+                    <p class="contact__name">Limitless Artist Group</p>
+                    <p>Booking Agent for</p>
+                    <p>US / South America / Japan</p>
+                    <p class="contact__email">bookings@limitlessag.com</p>
+                </div>
+                <div class="contact">
+                    <p class="contact__name">ARCH Entertainment</p>
+                    <p>Booking Agent for</p>
+                    <p>UK/EU/AU</p>
+                    <p class="contact__email">bookings@archentertainment.com</p>
+                </div>
+            </div>
+        
+            <div class="footer__brand">
+                <a href="index.html">
+                    <img class="footer__brand-logo" src="assets/logos/Logo-bandsite.svg">
+                </a>
+            </div>
+            <p class="footer__copyright">Copyright The Bees Knees © 2023 All Rights Reserved</p>
+        </footer>  
+
+    </body>
+</html>
+
+

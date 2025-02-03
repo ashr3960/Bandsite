@@ -246,3 +246,211 @@
     padding: 0 120px;
   }
 }
+
+
+//Comment Post
+.comment {
+  padding: 24px 16px 16px;
+  position: relative;
+
+  &__title {
+    font-size: 24px;
+    line-height: 36px;
+    padding-bottom: 8px;
+    font-family: nunito-medium;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    padding-left: 56px;
+
+    &__title {
+      font-family: nunito-medium;
+      color: $mercury;
+      padding-bottom: 8px;
+      font-size: 13px;
+    }
+
+    &__name,
+    &__comment {
+      border: 1px solid $mercury;
+      background-color: $alabaster;
+      padding: 8px;
+      font-family: nunito-regular;
+      font-size: 14px;
+      height: 36px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    &__name:focus,
+    &__comment:focus {
+      border-color: $black;
+      outline: none;
+    }
+
+    &__comment {
+      padding-top: 20px;
+      padding-bottom: 50px;
+    }
+
+    &__button {
+      border: none;
+      cursor: pointer;
+      font-family: nunito-bold;
+      font-size: 14px;
+      transition: background 0.3s ease-in-out;
+      background-color: $black;
+      color: $white;
+      padding: 12px;
+      border-radius: 4px;
+      line-height: 20px;
+      margin-bottom: 16px;
+
+      &:hover {
+          background-color: $darkblack;
+      }
+    }
+  }
+
+  .post {
+    &__item {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &__profile {
+    position: absolute;
+    top: 80px;
+    left: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+// Tablet Style for Comment
+@include tablet {
+  .comment {
+    padding: 24px 36px 24px;
+
+    &__title {
+      font-size: 36px;
+      padding-bottom: 36px;
+    }
+
+    &__profile {
+      width: 48px;
+      height: 48px;
+      left: 64px;
+      top: 112px;
+    }
+
+    &__text {
+      width: 80%;
+      padding-left: 112px;
+    }
+
+    &__text__button {
+      width: 30%;
+      margin-left: 70%;
+    }
+  }
+}
+
+// Desktop Style for Comment
+@include desktop {
+  .comment {
+    padding: 24px 120px;
+
+    &__profile {
+      left: 368px;
+    }
+
+    &__text {
+      width: 70%;
+      padding-left: 320px;
+    }
+  }
+}
+
+
+// Post
+.post {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background-color: $white;
+  margin: 32px auto;
+  width: 90%;
+  max-width: 800px;
+
+  &__items {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  &__list-item {
+    border-bottom: 1px solid $mercury;
+    padding: 16px 0;
+    position: relative;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .post__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: nunito-regular;
+      font-weight: 600;
+
+      h3 {
+        margin: 0;
+        color: $black;
+      }
+
+      .post__header--date {
+        font-family: nunito-regular;
+        color: $mercury;
+      }
+    }
+
+    .post__comment {
+      margin-top: 16px;
+      font-family: nunito-regular;
+      font-size: 16px; 
+      color: $black;
+    }
+
+    .post__profile {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: $white;
+      position: absolute;
+      top: 16px;
+      left: 16px;
+    }
+  }
+}
+
+@include tablet { 
+  .post {
+    width: 80%;
+    padding: 32px 48px;
+  }
+}
+
+
+@include desktop {
+  .post {
+    width: 70%;
+    padding: 32px 64px;
+  }
+}

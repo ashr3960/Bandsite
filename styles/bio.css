@@ -545,6 +545,20 @@ a {
   top: 16px;
   left: -48px;
 }
+.post .delete-button {
+  margin-top: 20px;
+  background: none;
+  border: none;
+  color: #AFAFAF;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+.post .delete-button:hover {
+  color: #323232;
+}
+.post .delete-button i {
+  font-size: 20px;
+}
 
 @media (min-width: 768px) {
   .post {

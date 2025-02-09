@@ -440,6 +440,23 @@
       left: -48px;
     }
   }
+
+  .delete-button {
+    margin-top: 20px;
+    background: none;
+    border: none;
+    color: $silver;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    
+    &:hover {
+      color: $black;
+    }
+
+    i {
+      font-size: 20px;
+  }
+  }
 }
 
 @include tablet { 

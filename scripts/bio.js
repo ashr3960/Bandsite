@@ -1,80 +1,92 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let comments = [
-        {
-            name: "Victor Pinto",
-            timestamp: new Date("11/02/2023"),
-            comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
-        },
-        {
-            name: "Christina Cabrera",
-            timestamp: new Date("10/28/2023"),
-            comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
-        },
-        {
-            name: "Isaac Tadesse",
-            timestamp: new Date("10/20/2023"),
-            comment: "I can t stop listening. Every time I hear one of their songs the vocals it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can t get enough."
+    const url = "https://unit-2-project-api-25c1595833b2.herokuapp.com/";
+    const apiKey = "579cdec9-1d8a-4e2b-95ed-de97038a36a5"; 
+    const commentList = document.querySelector(".post__item");
+
+    // Function to get comments
+    function getComments() {
+        axios
+            .get(`${url}comments?api_key=${apiKey}`)
+            .then(response => {
+                console.log(response.data);
+                if (response.data && Array.isArray(response.data)) {
+                    let commentArray = response.data.sort((a, b) => b.timestamp - a.timestamp);
+
+                    commentList.innerHTML = ""; 
+
+                    commentArray.forEach(item => {
+                        let listItems = document.createElement("li");
+                        listItems.classList.add("post__list-item", "post__list-item--top");
+
+                        let postHeader = document.createElement("div");
+                        postHeader.classList.add("post__header");
+
+                        let headName = document.createElement("h3");
+                        headName.innerText = item.name;
+
+                        let headDate = document.createElement("p");
+                        headDate.classList.add("post__header--date");
+                        headDate.innerText = new Date(item.timestamp).toDateString();
+
+                        let text = document.createElement("p");
+                        text.classList.add("post__comment");
+                        text.innerText = item.comment;
+
+                        let profile = document.createElement("img");
+                        profile.classList.add("post__profile");
+
+                        commentList.appendChild(listItems);
+                        listItems.appendChild(postHeader);
+                        postHeader.appendChild(headName);
+                        postHeader.appendChild(headDate);
+                        listItems.appendChild(text);
+                        listItems.appendChild(profile);
+                    });
+                } else {
+                    console.warn("No comments available.");
+                }
+            })
+            .catch(err => {
+                console.error("Error fetching comments:", err);
+                alert("Sorry, there was an issue fetching comments.");
+            });
+    }
+
+    getComments();
+
+    let formCta = document.querySelector(".comment__text");
+
+    formCta.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let nameText = e.target.nametext.value;
+        let commentText = e.target.commenttext.value;
+
+        if (nameText.trim() === "" || commentText.trim() === "") {
+            alert("Both name and comment are required.");
+            return;
         }
-    ];
 
-    function renderComments() {
-        const commentList = document.querySelector(".post__item");
-        commentList.innerHTML = '';
+        let newComment = { name: nameText, comment: commentText };
 
-        comments.forEach(comment => {
-            const listItem = document.createElement("li");
-            listItem.classList.add("post__list-item");
+        axios
+            .post(`${url}comments?api_key=${apiKey}`, newComment, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                if (response.status === 201) {
+                    alert("Comment posted successfully!");
+                    getComments(); 
+                }
+            })
+            .catch(err => {
+                console.error("Error posting comment:", err);
+                alert("There was an error posting your comment.");
+            });
 
-            const postHeader = document.createElement("div");
-            postHeader.classList.add("post__header");
-
-            const headName = document.createElement("h3");
-            headName.innerText = comment.name;
-
-            const headDate = document.createElement("p");
-            headDate.classList.add("post__header--date");
-            headDate.innerText = comment.timestamp.toLocaleDateString('en-US');
-
-            const commentText = document.createElement("p");
-            commentText.classList.add("post__comment");
-            commentText.innerText = comment.comment;
-
-            listItem.appendChild(postHeader);
-            postHeader.appendChild(headName);
-            postHeader.appendChild(headDate);
-            listItem.appendChild(commentText);
-
-            commentList.appendChild(listItem);
-        });
-    }
-
-    function handleFormSubmit(event) {
-        event.preventDefault();
-
-        const nameInput = document.querySelector(".comment__text__name");
-        const commentInput = document.querySelector(".comment__text__comment");
-
-        const newComment = {
-            name: nameInput.value,
-            timestamp: new Date(),
-            comment: commentInput.value
-        };
-
-        comments.push(newComment);
-
-        nameInput.value = "";
-        commentInput.value = "";
-
-        renderComments();
-    }
-
-    const form = document.querySelector(".comment__text");
-    form.addEventListener("submit", handleFormSubmit);
-
-    renderComments();
+        document.querySelector(".comment__text__name").value = "";
+        document.querySelector(".comment__text__comment").value = "";
+    });
 });
-
-
-
-//did the connection locally not sure if this was the correct way but it shows up when clicking submit
-//was planning on creating an API but it was too time consuming so ended up making the js connection local

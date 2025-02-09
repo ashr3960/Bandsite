@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             })
             .then(response => {
-                if (response.status === 200) {
+                if (response.status === 201) {
                     alert("Comment posted successfully!");
                     getComments(); 
                     // setTimeout(() => {

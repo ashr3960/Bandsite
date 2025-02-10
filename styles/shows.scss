@@ -85,8 +85,12 @@
 }
 
 
+
+
+
+
 .shows {
-    padding: 24px 0 0;
+    padding: 32px 0 0;
 
     &__title {
         font-family: nunito-bold;
@@ -95,20 +99,7 @@
     }
 
     &__label {
-        display: flex;
-        justify-content: space-between;
-        padding-left: 16px;
-        padding-top: 36px;
-        font-family: nunito-bold;
-        font-size: 12px;
-        color: $silver;
-        width: 80%;
-    }
-
-    &__label__name {
-        display: inline-block;
-        font-family: nunito-bold;
-        color: $silver;
+        display: none;
     }
 
     &__container {
@@ -116,7 +107,7 @@
         padding-left: 0;
     }
 
-    &__list {
+    &__mobile {
         padding: 16px;
         border-bottom: 1px solid $mercury;
         font-family: nunito-regular;
@@ -131,25 +122,26 @@
         }
     }
 
-    &__list--label {
+    &__mobile--label {
         font-family: nunito-bold;
-        color: $silver;
+        color: $mercury;
     }
 
-    &__list--medium {
+    &__mobile--medium {
         font-family: nunito-medium;
         color: $black;
     }
 
-    &__list--button {
+    &__mobile--button {
+        background-color: $black;
+        padding: 8px 64px;
+        font-family: nunito-bold;
         color: $white;
         border-radius: 4px;
         width: 100%;
         border: none;
         cursor: pointer;
-        background-color: $black;
-        padding: 8px 64px;
-        font-family: nunito-bold;
+        margin-top: 24px;
 
         &:hover {
             background-color: $darkblack;
@@ -161,29 +153,39 @@
     .shows {
         padding: 36px;
 
-        &__list {
+        &__label {
+            display: flex;
+            padding-left: 16px;
+            width: 80%;
+            justify-content: space-between;
+            padding-top: 36px;
+            font-family: nunito-bold;
+            font-size: 12px;
+            color: $silver;
+        }
+
+        &__label--venue {
+            margin-left: 4vw;
+        }
+
+        &__label--location {
+            margin-right: 16vw;
+        }
+
+        &__mobile {
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 14px;
         }
 
-        &__list--button {
+        &__mobile--button {
             width: 25%;
             padding: 12px 0;
         }
 
-        &__label {
-            display: flex;
-            justify-content: space-between;
-            padding-left: 16px;
-            width: 80%;
-        }
-
-        &__label__name {
-            display: inline-block;
-            font-family: nunito-bold;
-            color: $silver;
+        &__mobile--label {
+            display: none;
         }
     }
 }
@@ -192,17 +194,17 @@
     .shows {
         padding-left: 120px;
 
-        &__list {
+        &__mobile {
             margin-left: 160px;
             align-items: center;
         }
 
-        &__list--hidden {
+        &__mobile--hidden {
             display: none;
         }
 
         &__label {
-            padding-left: 176px;
+            padding-left: 180px;
             padding-top: 0;
         }
     }

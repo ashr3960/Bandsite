@@ -388,14 +388,15 @@
   margin: 32px auto;
   width: 90%;
   max-width: 800px;
+  font-family: nunito-regular;
 
-  &__items {
+  &__item {
     list-style-type: none;
     padding: 0;
   }
 
   &__list-item {
-    border-bottom: 1px solid $mercury;
+    border-bottom: 2px solid $mercury;
     padding: 16px 0;
     position: relative;
 
@@ -416,8 +417,9 @@
       }
 
       .post__header--date {
-        font-family: nunito-regular;
-        color: $mercury;
+        font-family: nunito-medium;
+        font-weight: 200;
+        color: $silver;
       }
     }
 
@@ -432,11 +434,28 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background-color: $white;
+      background-color: $mercury;
       position: absolute;
       top: 16px;
-      left: 16px;
+      left: -48px;
     }
+  }
+
+  .delete-button {
+    margin-top: 20px;
+    background: none;
+    border: none;
+    color: $silver;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    
+    &:hover {
+      color: $black;
+    }
+
+    i {
+      font-size: 20px;
+  }
   }
 }
 

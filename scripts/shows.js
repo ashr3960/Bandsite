@@ -1,49 +1,68 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const shows = [
-      { date: "Mon Sept 09 2024", venue: "Ronald Lane", location: "San Francisco, CA" },
-      { date: "Tue Sept 17 2024", venue: "Pier 3 East", location: "San Francisco, CA" },
-      { date: "Sat Oct 12 2024", venue: "View Lounge", location: "San Francisco, CA" },
-      { date: "Sat Nov 16 2024", venue: "Hyatt Agency", location: "San Francisco, CA" },
-      { date: "Fri Nov 29 2024", venue: "Moscow Center", location: "San Francisco, CA" },
-      { date: "Wed Dec 18 2024", venue: "Pres Club", location: "San Francisco, CA" }
-    ];
-  
-    function renderShows(arr) {
-        const tableContainer = document.querySelector(".shows__container"); 
+import BandSiteApi from  "./band-site-api.js"; 
+
+document.addEventListener("DOMContentLoaded", async function () {
+    const apiKey = "579cdec9-1d8a-4e2b-95ed-de97038a36a5";  
+    const bandSiteApi = new BandSiteApi(apiKey); 
+
+    try {
+        const shows = await bandSiteApi.getShows();
+
+        renderShows(shows);
+    } catch (error) {
+        console.error("Error fetching shows:", error);
+    }
+
+    function renderShows(shows) {
+        const tableContainer = document.querySelector(".shows__container");
         const title = document.querySelector(".shows__title");
         title.innerText = "Shows";
-    
-        arr.forEach(show => {
-        
+
+        shows.forEach(show => {
             let showItem = document.createElement("li");
-            showItem.classList.add("shows__list");
+            showItem.classList.add("shows__mobile");
             tableContainer.appendChild(showItem);
-    
+            
             // Date
-            let date = document.createElement("p");
-            date.classList.add("shows__list--medium");
-            date.innerText = show.date;
-            showItem.appendChild(date);
-    
+            let dateWrapper  = document.createElement("div");
+            let labelDate = document.createElement("label");
+            labelDate.classList.add("shows__mobile--label", "shows__mobile--hidden");
+            labelDate.innerText = "DATE";
+            let dateContent = document.createElement("p");
+            dateContent.classList.add("shows__mobile--medium");
+            dateContent.innerText = new Date(Number(show.date)).toDateString();
+            dateWrapper .appendChild(labelDate);
+            dateWrapper .appendChild(dateContent);
+            showItem.appendChild(dateWrapper );
+  
             // Venue
-            let venue = document.createElement("p");
-            venue.classList.add("shows__list--medium");
-            venue.innerText = show.venue;
-            showItem.appendChild(venue);
-    
+            let venueWrapper = document.createElement("div");
+            let labelVenue = document.createElement("label");
+            labelVenue.classList.add("shows__mobile--label", "shows__mobile--hidden");
+            labelVenue.innerText = "VENUE";
+            let venueContent = document.createElement("p");
+            venueContent.classList.add("shows__mobile--medium");
+            venueContent.innerText = show.venue;
+            venueWrapper.appendChild(labelVenue);
+            venueWrapper.appendChild(venueContent);
+            showItem.appendChild(venueWrapper);
+  
             // Location
-            let location = document.createElement("p");
-            location.classList.add("shows__list--medium");
-            location.innerText = show.location;
-            showItem.appendChild(location);
-    
+            let locationWrapper = document.createElement("div");
+            let labelLocation = document.createElement("label");
+            labelLocation.classList.add("shows__mobile--label", "shows__mobile--hidden");
+            labelLocation.innerText = "LOCATION";
+            let locationContent = document.createElement("p");
+            locationContent.classList.add("shows__mobile--medium");
+            locationContent.innerText = show.location;
+            locationWrapper.appendChild(labelLocation);
+            locationWrapper.appendChild(locationContent);
+            showItem.appendChild(locationWrapper);
+  
             // Button
             let button = document.createElement("button");
-            button.classList.add("shows__list--button");
+            button.classList.add("shows__mobile--button");
             button.innerText = "BUY TICKETS";
             showItem.appendChild(button);
         });
     }
-  
-    renderShows(shows); 
 });

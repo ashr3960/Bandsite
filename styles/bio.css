@@ -500,13 +500,14 @@ a {
   margin: 32px auto;
   width: 90%;
   max-width: 800px;
+  font-family: nunito-regular;
 }
-.post__items {
+.post__item {
   list-style-type: none;
   padding: 0;
 }
 .post__list-item {
-  border-bottom: 1px solid #E1E1E1;
+  border-bottom: 2px solid #E1E1E1;
   padding: 16px 0;
   position: relative;
 }
@@ -525,8 +526,9 @@ a {
   color: #323232;
 }
 .post__list-item .post__header .post__header--date {
-  font-family: nunito-regular;
-  color: #E1E1E1;
+  font-family: nunito-medium;
+  font-weight: 200;
+  color: #AFAFAF;
 }
 .post__list-item .post__comment {
   margin-top: 16px;
@@ -538,10 +540,24 @@ a {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #FFFFFF;
+  background-color: #E1E1E1;
   position: absolute;
   top: 16px;
-  left: 16px;
+  left: -48px;
+}
+.post .delete-button {
+  margin-top: 20px;
+  background: none;
+  border: none;
+  color: #AFAFAF;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+.post .delete-button:hover {
+  color: #323232;
+}
+.post .delete-button i {
+  font-size: 20px;
 }
 
 @media (min-width: 768px) {
